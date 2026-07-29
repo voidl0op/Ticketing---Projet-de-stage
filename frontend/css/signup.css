@@ -1,0 +1,45 @@
+/* signup.css — extra spacing tweaks for the signup page (4 fields instead of 2) */
+
+.auth .card {
+  padding: 32px 44px 28px 44px;
+}
+
+.auth .card h2 {
+  font-size: 28px;
+  margin-bottom: 4px;
+}
+
+.auth .card .subtitle {
+  margin-bottom: 20px;
+}
+
+#signupForm label {
+  margin-bottom: 6px;
+  transition: color .15s ease;
+}
+
+#signupForm .field {
+  margin-bottom: 14px;
+}
+
+/* Password mismatch state — label text swapped to error message */
+#signupForm label.label-error {
+  color: #d13438;
+}
+
+.signup-error {
+  display: none;
+  color: #d13438;
+  font-size: 13.5px;
+  font-weight: 600;
+  text-align: center;
+  margin: -4px 0 14px 0;
+}
+
+.signup-error.visible {
+  display: block;
+}
+
+.auth .card .help {
+  margin-top: 16px;
+}

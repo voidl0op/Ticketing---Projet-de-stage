@@ -1,0 +1,67 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Liste des tickets</title>
+    <link rel="stylesheet" href="../css/ticket.css" />
+    <link rel="stylesheet" href="../css/list.css" />
+  </head>
+  <body>
+    <div class="page list-page">
+      <div class="header">
+        <div class="header-left">
+          <div class="header-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M8 6h13M8 12h13M8 18h13" />
+              <path d="M3 6h.01M3 12h.01M3 18h.01" />
+            </svg>
+          </div>
+          <div class="header-text">
+            <h1>Liste des tickets</h1>
+            <p>
+              Suivez et gérez l'ensemble des incidents informatiques déclarés.
+            </p>
+          </div>
+        </div>
+        <a class="btn btn-primary btn-header" href="ticket.html">
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M12 5v14M5 12h14" />
+          </svg>
+          Nouveau ticket
+        </a>
+      </div>
+      <div class="card list-card">
+        <div class="table-wrap">
+          <table class="tickets-table">
+            <thead>
+              <tr>
+                <th>Titre</th>
+                <th>Catégorie</th>
+                <th>Priorité</th>
+                <th>Statut</th>
+                <th>Créé le</th>
+              </tr>
+            </thead>
+            <tbody id="tickets-body">
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <script src="../js/list.js"></script>
+  </body>
+</html>

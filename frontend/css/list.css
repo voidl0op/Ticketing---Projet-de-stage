@@ -1,0 +1,97 @@
+/* Uses design tokens and .page/.header/.card/.btn rules already defined in styles.css */
+
+.list-card{
+  padding: 0;
+  overflow: hidden;
+}
+
+.table-wrap{
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+}
+
+.tickets-table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+}
+
+.tickets-table thead th{
+  position: sticky;
+  top: 0;
+  background: var(--primary-50);
+  text-align: left;
+  font-size: 11.5px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--ink-700);
+  padding: 14px 24px;
+  border-bottom: 1px solid var(--primary-200);
+}
+
+.tickets-table tbody td{
+  padding: 16px 24px;
+  border-bottom: 1px solid var(--border-soft);
+  color: var(--ink-700);
+  vertical-align: middle;
+}
+
+.tickets-table tbody tr:last-child td{
+  border-bottom: none;
+}
+
+.tickets-table tbody tr{
+  transition: background .15s ease;
+}
+
+.tickets-table tbody tr:hover{
+  background: var(--primary-50);
+}
+
+.cell-title{
+  font-weight: 600;
+  color: var(--ink-900);
+}
+
+.priority-pill,
+.status-pill{
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 11px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.priority-pill::before{
+  content: "";
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+}
+
+.priority-pill.low{ background: rgba(34,197,94,0.1); color: #158A43; }
+.priority-pill.low::before{ background: var(--success); }
+
+.priority-pill.med{ background: rgba(245,158,11,0.12); color: #B45F06; }
+.priority-pill.med::before{ background: var(--warning); }
+
+.priority-pill.high{ background: rgba(251,146,60,0.12); color: #C2540C; }
+.priority-pill.high::before{ background: var(--high); }
+
+.priority-pill.crit{ background: rgba(239,68,68,0.12); color: #C51F1F; }
+.priority-pill.crit::before{ background: var(--critical); }
+
+.status-pill.open{ background: rgba(239,68,68,0.1); color: #C51F1F; }
+.status-pill.progress{ background: var(--primary-100); color: var(--primary); }
+.status-pill.resolved{ background: rgba(34,197,94,0.1); color: #158A43; }
+
+@media (max-width: 860px){
+  .tickets-table{ font-size: 12.5px; }
+  .tickets-table thead th,
+  .tickets-table tbody td{ padding: 12px 14px; }
+}

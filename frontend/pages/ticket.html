@@ -1,0 +1,327 @@
+<!doctype html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Créer un nouveau ticket</title>
+    <link rel="stylesheet" href="../css/ticket.css" />
+  </head>
+  <body>
+    <div class="page">
+      <div class="header">
+        <div class="header-left">
+          <div class="header-icon">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="1.8"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path
+                d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+              />
+              <path d="M14 2v6h6" />
+              <path d="M12 12v6" />
+              <path d="M9 15h6" />
+            </svg>
+          </div>
+          <div class="header-text">
+            <h1>Créer un nouveau ticket</h1>
+            <p>
+              Veuillez remplir les informations ci-dessous pour déclarer un
+              incident informatique.
+            </p>
+          </div>
+        </div>
+        <a
+          class="btn btn-primary btn-header"
+          href="list.html"
+          id="tickets-list-btn"
+        >
+          <svg
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke-width="2"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+          >
+            <path d="M8 6h13M8 12h13M8 18h13" />
+            <path d="M3 6h.01M3 12h.01M3 18h.01" />
+          </svg>
+          Listes des tickets
+        </a>
+      </div>
+      <div class="card">
+        <div class="form-grid">
+          <!-- Left column -->
+          <div class="col">
+            <div class="field">
+              <label for="title"
+                >Titre du ticket<span class="req">*</span></label
+              >
+              <div class="input-shell">
+                <svg
+                  class="leading"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <path d="M14 2v6h6" />
+                </svg>
+                <input
+                  class="text-input"
+                  id="title"
+                  type="text"
+                  placeholder="Résumé court et explicite de l'incident"
+                />
+              </div>
+              <p class="field-error-msg" id="title-error">
+                Veuillez saisir un titre pour ce ticket.
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="description"
+                >Description détaillée<span class="req">*</span></label
+              >
+              <div class="input-shell textarea">
+                <svg
+                  class="leading"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"
+                  />
+                </svg>
+                <textarea
+                  class="text-input"
+                  id="description"
+                  placeholder="Décrivez le problème rencontré, les symptômes, le contexte et toute information utile..."
+                ></textarea>
+              </div>
+              <p class="field-error-msg" id="description-error">
+                Veuillez décrire le problème rencontré.
+              </p>
+            </div>
+          </div>
+          <div class="col">
+            <div class="field">
+              <label for="category">Catégorie<span class="req">*</span></label>
+              <div class="input-shell select-shell">
+                <svg
+                  class="leading"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="3" width="7" height="7" rx="1.5" />
+                  <rect x="3" y="14" width="7" height="7" rx="1.5" />
+                  <rect x="14" y="14" width="7" height="7" rx="1.5" />
+                </svg>
+                <select class="text-input" id="category">
+                  <option value="" disabled selected hidden>
+                    Sélectionner une catégorie
+                  </option>
+                  <option value="systeme">Système &amp; sauvegarde</option>
+                  <option value="reseau">Réseau</option>
+                  <option value="admins">Admins</option>
+                  <option value="helpdesk">Helpdesk</option>
+                </select>
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <p class="field-error-msg" id="category-error">
+                Veuillez sélectionner une catégorie.
+              </p>
+            </div>
+
+            <div class="field">
+              <label for="priority">Priorité<span class="req">*</span></label>
+              <div class="input-shell select-shell">
+                <svg
+                  class="leading"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M4 15s1-1 4-1 5 2 8 2 4-1 4-1V3s-1 1-4 1-5-2-8-2-4 1-4 1z"
+                  />
+                  <path d="M4 22V15" />
+                </svg>
+                <select class="text-input" id="priority">
+                  <option value="" disabled selected hidden>
+                    Sélectionner la priorité
+                  </option>
+                  <option value="informationelle">Informationelle</option>
+                  <option value="haute">Haute</option>
+                  <option value="critique">Critique</option>
+                </select>
+                <svg
+                  class="chevron"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M6 9l6 6 6-6" />
+                </svg>
+              </div>
+              <p class="field-error-msg" id="priority-error">
+                Veuillez sélectionner une priorité.
+              </p>
+            </div>
+          </div>
+        </div>
+        <div class="attachments">
+          <p class="section-label">
+            Pièces jointes <span class="optional">(optionnel)</span>
+          </p>
+          <div class="attach-grid">
+            <div class="attach-card" id="screenshot-card">
+              <div class="attach-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <rect x="3" y="3" width="18" height="18" rx="2.5" />
+                  <circle cx="8.5" cy="8.5" r="1.5" />
+                  <path d="M21 15l-5-5L5 21" />
+                </svg>
+              </div>
+              <h4>Capture d'écran</h4>
+              <p>PNG, JPG, GIF jusqu'à 10 Mo</p>
+              <p class="attach-filename" style="display: none"></p>
+              <button class="browse-link" type="button">
+                Parcourir
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="width: 14px; height: 14px"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+              <input
+                type="file"
+                id="screenshot-input"
+                accept=".png,.jpg,.jpeg,.gif"
+                style="display: none"
+              />
+            </div>
+
+            <div class="attach-card" id="log-card">
+              <div class="attach-icon">
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="1.8"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path
+                    d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+                  />
+                  <path d="M14 2v6h6" />
+                  <path d="M9 13h6M9 17h6" />
+                </svg>
+              </div>
+              <h4>Fichier</h4>
+              <p>TXT, LOG etc...</p>
+              <p class="attach-filename" style="display: none"></p>
+              <button class="browse-link" type="button">
+                Parcourir
+                <svg
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  style="width: 14px; height: 14px"
+                >
+                  <path d="M5 12h14M13 6l6 6-6 6" />
+                </svg>
+              </button>
+              <input
+                type="file"
+                id="log-input"
+                accept=".txt,.log,.zip"
+                style="display: none"
+              />
+            </div>
+          </div>
+        </div>
+        <div class="footer">
+          <button class="btn btn-secondary" type="button" id="cancel-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M18 6L6 18M6 6l12 12" />
+            </svg>
+            Annuler
+          </button>
+          <button class="btn btn-primary" type="button" id="submit-btn">
+            <svg
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M22 2L11 13" />
+              <path d="M22 2l-7 20-4-9-9-4z" />
+            </svg>
+            Soumettre le ticket
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="toast" id="toast">
+      <svg
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+      >
+        <path d="M20 6L9 17l-5-5" />
+      </svg>
+      <span>Ticket soumis avec succès.</span>
+    </div>
+    <script src="../js/ticket.js"></script>
+  </body>
+</html>
