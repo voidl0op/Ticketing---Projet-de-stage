@@ -70,6 +70,13 @@ body{
   min-width: 0;
 }
 
+.header-actions{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex: none;
+}
+
 .btn-header{
   flex: none;
 }

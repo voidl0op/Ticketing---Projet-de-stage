@@ -2,6 +2,29 @@ const API_BASE = 'http://127.0.0.1:5000/api';
 
 document.addEventListener('DOMContentLoaded', () => {
 
+  function getCurrentUserId() {
+    try {
+      const raw = localStorage.getItem('currentUser');
+      const user = raw ? JSON.parse(raw) : null;
+      return user ? user.user_id : null;
+    } catch (e) {
+      return null;
+    }
+  }
+
+  if (!getCurrentUserId()) {
+    window.location.href = 'login.html';
+    return;
+  }
+
+  const logoutBtn = document.getElementById('logout-btn');
+  if (logoutBtn) {
+    logoutBtn.addEventListener('click', () => {
+      localStorage.removeItem('currentUser');
+      window.location.href = 'login.html';
+    });
+  }
+
   /* ---------- Select placeholder styling ---------- */
   const selects = document.querySelectorAll('select.text-input');
   selects.forEach((select) => {
@@ -125,27 +148,28 @@ document.addEventListener('DOMContentLoaded', () => {
     setTimeout(() => toast.classList.remove('visible'), 3200);
   }
 
-  function getCurrentUserId() {
-    try {
-      const raw = localStorage.getItem('currentUser');
-      const user = raw ? JSON.parse(raw) : null;
-      return user ? user.user_id : null;
-    } catch (e) {
-      return null;
-    }
-  }
-
   function submitTicket() {
+    const formData = new FormData();
+    formData.append('title', titleInput.value.trim());
+    formData.append('description', descriptionInput.value.trim());
+    formData.append('category', categorySelect.value);
+    formData.append('priority', prioritySelect.value);
+    formData.append('user_id', getCurrentUserId());
+
+    const screenshotInput = document.getElementById('screenshot-input');
+    const logInput = document.getElementById('log-input');
+    if (screenshotInput && screenshotInput.files[0]) {
+      formData.append('screenshot', screenshotInput.files[0]);
+    }
+    if (logInput && logInput.files[0]) {
+      formData.append('log', logInput.files[0]);
+    }
+
     return fetch(`${API_BASE}/tickets`, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        title: titleInput.value.trim(),
-        description: descriptionInput.value.trim(),
-        category: categorySelect.value,
-        priority: prioritySelect.value,
-        user_id: getCurrentUserId()
-      })
+      body: formData
+      // No Content-Type header here — the browser sets the multipart
+      // boundary automatically when the body is a FormData object.
     }).then(response => response.json());
   }
 
